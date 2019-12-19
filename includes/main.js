@@ -4,6 +4,10 @@ $(document).ready(initiateApp);
 
 var pictures = [
 	'images/landscape-1.jpg',
+	'images/landscape-2.jpg',
+	'images/landscape-3.jpg',
+	'images/landscape-8.jpg',
+	'images/landscape-9.jpg',
 	'images/landscape-10.jpg',
 	'images/landscape-11.jpg',
 	'images/landscape-13.jpg',
@@ -11,10 +15,6 @@ var pictures = [
 	'images/landscape-17.jpg',
 	'images/landscape-18.jpg',
 	'images/landscape-19.jpg',
-	'images/landscape-2.jpg',
-	'images/landscape-3.jpg',
-	'images/landscape-8.jpg',
-	'images/landscape-9.jpg',
 	'images/pexels-photo-132037.jpeg',
 	'images/pretty.jpg',
 ];
@@ -28,26 +28,25 @@ var pictures = [
 
 **/
 
- /**
- * initiateApp  - ``This section will contain the name of the function``
- * - This function will:  - ``This section will give an overview of the functionality``.
- * 	- Use the `makeGallery` function to populate the DOM with dynamic `figure` elements with
- *    background images
- *  - Use the addModalCloseHandler to apply a click handler to the modal.
- * ** Specifications ** - ``This section will contain more detailed information on the functions construction
- *                          including parameters``
- * - Takes no parameters
- * - Within the function:
- *   - call the makeGallery function and passes in the pictures array as an argument
- *   - call the addModalCloseHandler function to add a "click" event handler which will
- *     close the modal when the image is clicked.
- * - Considerations - ``This section will give you questions to consider or useful information``
- *   - Why is the pictures array being passed into the "makeGallery" function as an argument?
- *   - Why is the initiateApp function being used to apply the click handler via the
- *     addModalCloseHandler function?
- **/
+/**
+* initiateApp
+* - This function will:
+* 	- Use the `makeGallery` function to populate the DOM with dynamic `figure` elements with
+*    background images
+*  - Use the addModalCloseHandler to apply a click handler to the modal.
+* ** Specifications **
+* - Takes no parameters
+* - Within the function:
+*   - call the makeGallery function and passes in the pictures array as an argument
+*   - call the addModalCloseHandler function to add a "click" event handler which will
+*     close the modal when the image is clicked.
+* - Considerations
+*   - Why is the pictures array being passed into the "makeGallery" function as an argument?
+*   - Why is the initiateApp function being used to apply the click handler via the
+*     addModalCloseHandler function?
+**/
 
-function initiateApp(){
+function initiateApp() {
 	/*BONUS FUNCTIONALITY: add jquery sortable call here to allow resorting of the images
 		//on change, rebuild the images array into the newly sorted order
 		Documentation: http://api.jqueryui.com/sortable/
@@ -57,90 +56,98 @@ function initiateApp(){
 	addModalCloseHandler();
 }
 
-	/**
- * makeGallery
- * - This method will:
- * 	- Create the HTML structures for each image in the gallery.
- *  - Use the image paths located in the `imageArray` parameter as sources for the background images
- *    in the `figure` elements which are created.
- *  - Attach a click handler to the `figure` elements which are created that will call the
- *    `displayImage` function.
- *  - Append the completed `figure` elements to the `section` with the id of `gallery`.
- * ** Specifications **
- * - Takes one parameter:
- *   - imageArray - which will be the `pictures` array that contains all of the image paths.
- * - Within the function:
- *   - Use a for loop to go through the image array
- *   - Within the loop:
- *     - Use jQuery to create the following HTML elements and store them in variables:
- * 	     - a `figure` element with the following attributes:
- *         - class - imageGallery col-xs-12 col-sm-6 col-md-4
- *           - note: the above are CSS and bootstrap classes for styling purposes
- *         - imgPath:
- * 		     - Assign this attribute the path in the array which matches the current index of the loop!
- * 		       - Note: This is a custom attribute you will create in order to store the image path
- *                     which is being used for the background image. You are doing this so when you
- *                     need to update the image in the modal, you can easily retrieve the image path!
- *         - Also, Give the `figure` element a background image:
- *           - Hint: the path for the background image should be the path in the image array
- *             which corresponds to the current index of the loop
- *           - Hint: the jQuery .css() method can be very helpful here!
- *       - a `figcaption` element with text in it:
- * 			 - the text should be the name of the image which is in the path, but only the image name.
- *             - Example image 'images/landscape-1.jpg'
- *             - Example Title 'landscape-1'
- *           - Hint: The .slice() and .indexOf() methods can be very useful
- *                   as you need to select and save only a part of the paths to get
- *                   title from the path
- *    - Append the `figure` and `figcaption` elements into the correct HTML structure
- *      - the `figcaption` is a child of the `figure`
- *    - Add a click handler to the `figure` element which calls the `displayImage` function on click.
- *    - Append the completed HTML structure to the `section` element with the id of `gallery`
- *
- * - Considerations
- *   - How do you use .css() to set the background image property for the `figure` element?
- *     - https://www.w3schools.com/jquery/jquery_css.asp
- *   - How do you use .slice() to select a piece of the path strings and store it to use as the
- *     `figcaption?
- *     - https://www.w3schools.com/jsref/jsref_slice_string.asp
- *   - How do you use indexOf to find where to use .slice()?
- *     - https://www.w3schools.com/jsref/jsref_indexof.asp
- *   - How do you attach a click handler to an element?
- *     - https://www.w3schools.com/jquery/event_click.asp
- *
- **/
+/**
+* makeGallery
+* - This method will:
+* 	- Create the HTML structures for each image in the gallery.
+*  - Use the image paths located in the `imageArray` parameter as sources for the background images
+*    in the `figure` elements which are created.
+*  - Attach a click handler to the `figure` elements which are created that will call the
+*    `displayImage` function.
+*  - Append the completed `figure` elements to the `section` with the id of `gallery`.
+* ** Specifications **
+* - Takes one parameter:
+*   - imageArray - which will be the `pictures` array that contains all of the image paths.
+* - Within the function:
+*   - Use a for loop to go through the image array
+*   - Within the loop:
+*     - Use jQuery to create the following HTML elements and store them in variables:
+* 	     - a `figure` element with the following attributes:
+*         - class - imageGallery col-xs-12 col-sm-6 col-md-4
+*           - note: the above are CSS and bootstrap classes for styling purposes
+*         - imgPath:
+* 		     - Assign this attribute the path in the array which matches the current index of the loop!
+* 		       - Note: This is a custom attribute you will create in order to store the image path
+*                     which is being used for the background image. You are doing this so when you
+*                     need to update the image in the modal, you can easily retrieve the image path!
+*         - Also, Give the `figure` element a background image:
+*           - Hint: the path for the background image should be the path in the image array
+*             which corresponds to the current index of the loop
+*           - Hint: the jQuery .css() method can be very helpful here!
+*       - a `figcaption` element with text in it:
+* 			 - the text should be the name of the image which is in the path, but only the image name.
+*             - Example image 'images/landscape-1.jpg'
+*             - Example Title 'landscape-1'
+*           - Hint: The .slice() and .indexOf() methods can be very useful
+*                   as you need to select and save only a part of the paths to get
+*                   title from the path
+*    - Append the `figure` and `figcaption` elements into the correct HTML structure
+*      - the `figcaption` is a child of the `figure`
+*    - Add a click handler to the `figure` element which calls the `displayImage` function on click.
+*    - Append the completed HTML structure to the `section` element with the id of `gallery`
+*
+* - Considerations
+*   - How do you use .css() to set the background image property for the `figure` element?
+*     - https://www.w3schools.com/jquery/jquery_css.asp
+*   - How do you use .slice() to select a piece of the path strings and store it to use as the
+*     `figcaption?
+*     - https://www.w3schools.com/jsref/jsref_slice_string.asp
+*   - How do you use indexOf to find where to use .slice()?
+*     - https://www.w3schools.com/jsref/jsref_indexof.asp
+*   - How do you attach a click handler to an element?
+*     - https://www.w3schools.com/jquery/event_click.asp
+*
+**/
 
-function makeGallery(imageArray){
+function makeGallery(imageArray) {
+	var key;
 
+	// not sure if the intent is to have these calls strung together or not
+	// can separate for easier readability if necessary
+	for (key in imageArray) {
+		$("<figure>").addClass("imageGallery col-xs-12 col-sm-6 col-md-4").attr("imgPath", imageArray[key]).css("background-image", `url(${imageArray[key]})`).append(`<figcaption>${imageArray[key].split("/").pop()}</figcaption>`).click(displayImage).appendTo("#gallery");
 	}
+}
 
-	/**
- * addModalCloseHandler
- * - This method will:
- *   - Attach a click handler to the to the `img` tag with an id of `modalImage`
- *     and pass it an anonymous function which will target the div with an id of
- *     `galleryModal` and call the .modal() function with the parameter needed to
- *     close the modal.
- * ** Specifications **
- * - Takes no parameters
- * ** Within the function **
- * - Use jQuery to select the `img` tag with the id of 'modalImage`.
- * - Attach a click handler to the selected `img` tag and passes
- *   it an anonymous function as a callback.
- *   - Within the anonymous function:
- *     - Use jQuery to target the `div` with an id of `galleryModal`
- *     - Call the .modal() function on the selected element, and pass
- *       it the argument needed to close the modal.
- * **Considerations**
- * - How do you use jQuery to select an id?
- * - How do you attach a click handler to an element and pass it an anonymous function?
- *   - https://www.w3schools.com/jquery/event_click.asp
- * - What argument do you need to pass in to the .modal() method to close the modal?
- *   - https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp (Check the Modal Methods section)
- */
+/**
+* addModalCloseHandler
+* - This method will:
+*   - Attach a click handler to the to the `img` tag with an id of `modalImage`
+*     and pass it an anonymous function which will target the div with an id of
+*     `galleryModal` and call the .modal() function with the parameter needed to
+*     close the modal.
+* ** Specifications **
+* - Takes no parameters
+* ** Within the function **
+* - Use jQuery to select the `img` tag with the id of 'modalImage`.
+* - Attach a click handler to the selected `img` tag and passes
+*   it an anonymous function as a callback.
+*   - Within the anonymous function:
+*     - Use jQuery to target the `div` with an id of `galleryModal`
+*     - Call the .modal() function on the selected element, and pass
+*       it the argument needed to close the modal.
+* **Considerations**
+* - How do you use jQuery to select an id?
+* - How do you attach a click handler to an element and pass it an anonymous function?
+*   - https://www.w3schools.com/jquery/event_click.asp
+* - What argument do you need to pass in to the .modal() method to close the modal?
+*   - https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp (Check the Modal Methods section)
+*/
 
-function addModalCloseHandler(){
-
+function addModalCloseHandler() {
+	$("#modalImage").click(function () {
+		$("#galleryModal").modal("hide");
+	})
 }
 
 /**
@@ -181,6 +188,11 @@ function addModalCloseHandler(){
  *   - https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp (Check the Modal Methods section)
  */
 
-function displayImage(){
-
+function displayImage(event) {
+	var currentImg = $(event.currentTarget);
+	var imagePath = currentImg.attr("imgPath");
+	var imageTitle = imagePath.split("/").pop();
+	$("#modalImage").attr("src", imagePath);
+	$(".modal-title").text(imageTitle);
+	$("#galleryModal").modal("show");
 }
