@@ -112,10 +112,16 @@ function initiateApp() {
 function makeGallery(imageArray) {
 	var key;
 
-	// not sure if the intent is to have these calls strung together or not
-	// can separate for easier readability if necessary
 	for (key in imageArray) {
-		$("<figure>").addClass("imageGallery col-xs-12 col-sm-6 col-md-4").attr("imgPath", imageArray[key]).css("background-image", `url(${imageArray[key]})`).append(`<figcaption>${imageArray[key].split("/").pop()}</figcaption>`).click(displayImage).appendTo("#gallery");
+		$("<figure>")
+		.addClass("imageGallery col-xs-12 col-sm-6 col-md-4")
+		.attr("imgPath", imageArray[key])
+		.css("background-image", `url(${imageArray[key]})`)
+		.append($("<figcaption>", {
+			text: "test",
+		}))
+		.click(displayImage)
+		.appendTo("#gallery");
 	}
 }
 
@@ -147,7 +153,7 @@ function makeGallery(imageArray) {
 function addModalCloseHandler() {
 	$("#modalImage").click(function () {
 		$("#galleryModal").modal("hide");
-	})
+	});
 }
 
 /**
