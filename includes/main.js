@@ -110,18 +110,21 @@ function initiateApp() {
 **/
 
 function makeGallery(imageArray) {
-	var key;
+	var key, imageTitle;
 
 	for (key in imageArray) {
+		imageTitle = imageArray[key].split("/").pop();
+		imageTitle = imageTitle.split(".")[0];
+
 		$("<figure>")
-		.addClass("imageGallery col-xs-12 col-sm-6 col-md-4")
-		.attr("imgPath", imageArray[key])
-		.css("background-image", `url(${imageArray[key]})`)
-		.append($("<figcaption>", {
-			text: "test",
-		}))
-		.click(displayImage)
-		.appendTo("#gallery");
+			.addClass("imageGallery col-xs-12 col-sm-6 col-md-4")
+			.attr("imgPath", imageArray[key])
+			.css("background-image", `url(${imageArray[key]})`)
+			.append($("<figcaption>", {
+				text: imageTitle,
+			}))
+			.click(displayImage)
+			.appendTo("#gallery");
 	}
 }
 
@@ -198,6 +201,7 @@ function displayImage(event) {
 	var currentImg = $(event.currentTarget);
 	var imagePath = currentImg.attr("imgPath");
 	var imageTitle = imagePath.split("/").pop();
+	imageTitle = imageTitle.split(".")[0];
 	$("#modalImage").attr("src", imagePath);
 	$(".modal-title").text(imageTitle);
 	$("#galleryModal").modal("show");
